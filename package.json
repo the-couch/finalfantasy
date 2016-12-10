@@ -1,0 +1,19 @@
+{
+  "name": "finalfantasy",
+  "version": "1.0.0",
+  "description": "Functional Final Fantasy Menus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "iamkevingreen",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^1.2.3",
+    "react": "^15.4.1"
+  }
+}
