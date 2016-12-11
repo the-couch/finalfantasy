@@ -63,6 +63,22 @@ export default class extends Component {
       });
   }
 
+  renderNav() {
+    let nav = [
+      'item',
+      'magic',
+      'materia',
+      'equip',
+      'status',
+      'order',
+      'limit',
+      'config'
+    ]
+    return nav.map((item, i) => {
+      return (<div key={i}>{item}</div>)
+    })
+  }
+
   render() {
     return (
       <div>
@@ -89,6 +105,11 @@ export default class extends Component {
             {/* <div className="final--location final--blue final--menu"> */}
             <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalLocation}>
               <span>Great Hole in Time</span>
+            </div>
+            <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalNav}>
+              {this.renderNav()}
+              <br />
+              <span>Save</span>
             </div>
           </div>
         </div>

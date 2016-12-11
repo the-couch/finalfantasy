@@ -70,6 +70,18 @@ let finalLocation = css({
   right: -20
 })
 
+let finalNav = css({
+  top: -10,
+  right: -20,
+  padding: '6px 20px',
+  textTransform: 'capitalize',
+  position: 'absolute',
+  fontSize: '.9rem',
+  '& span': {
+    opacity: .4
+  }
+})
+
 let finalUsers = css({
   fontSize: '.9rem',
   padding: '20px 40px',
@@ -186,6 +198,7 @@ module.exports = {
   wrapper,
   final,
   finalMenu,
+  finalNav,
   finalLocation,
   finalInfo,
   finalUsers,
