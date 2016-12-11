@@ -37,13 +37,11 @@ export default class extends Component {
         </Head>
         <div className={styles.wrapper}>
           <div className={styles.final}>
-            {/* <div className="final--users final--blue final--menu"> */}
-            <div {...styles.finalMenu} {...styles.blueGrad}>
+            <div {...styles.finalUsers} {...styles.finalMenu} {...styles.blueGrad}>
               {this.state.characters.map((character) => {
                 return <Character key={character.id} character={character} />
               })}
             </div>
-            {/* <div className="final--info final--blue final--menu"> */}
             <div {...styles.finalMenu} {...styles.blueGrad} {...styles.finalInfo}>
               <div className="wrapper">
                 <span>Time</span> <strong>{this.state.hours}:{this.state.minutes}:{this.state.seconds}</strong>
@@ -52,7 +50,8 @@ export default class extends Component {
                 <span>Gil</span> <strong>3992883</strong>
               </div>
             </div>
-            <div className="final--location final--blue final--menu">
+            {/* <div className="final--location final--blue final--menu"> */}
+            <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalLocation}>
               <span>Great Hole in Time</span>
             </div>
           </div>
@@ -116,7 +115,7 @@ const Character = React.createClass({
         <div className="final--users-image">
           <img src={this.props.character.photo} alt="" />
         </div>
-        <div className="final--users-wrapper">
+        <div className="wrapper">
           <div className="final--users-name">
             <span>{this.props.character.name}</span>
             <div className="final--users-stats">
@@ -156,15 +155,15 @@ const Character = React.createClass({
               </div>
             </div>
           </div>
-          <div className="final--users-limit">
-            <div className="final--users-limit-block">
+          <div {...styles.limit}>
+            <div {...styles.limitBlock}>
               <span>next level</span>
-              <div className="final--users-limit-box"><span style={nextLimitWidth}></span></div>
+              <div {...styles.limitBox}><span style={nextLimitWidth}></span></div>
             </div>
 
-            <div className="final--users-limit-block">
+            <div {...styles.limitBlock}>
               <span>Limit level <strong>{this.props.character.limit.level}</strong></span>
-              <div className="final--users-limit-box"><span style={limitLevelWidth}></span></div>
+              <div {...styles.limitBox}><span style={limitLevelWidth}></span></div>
             </div>
           </div>
         </div>
