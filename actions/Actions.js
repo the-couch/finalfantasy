@@ -1,9 +1,9 @@
 import alt from '../config/alt'
 
-class Actions {
+class MenuActions {
   updateCharacters(characters) {
     return characters
   }
 }
 
-module.exports = alt.createActions(Actions)
+module.exports = alt.createActions(MenuActions)

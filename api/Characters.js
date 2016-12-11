@@ -1,4 +1,4 @@
-import Config from '../config/Config'
+import Config from '../config/config'
 
 let CharactersAPI = {
   "characters": [

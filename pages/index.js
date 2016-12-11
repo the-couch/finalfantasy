@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
-import Store from '../stores/Store'
-import Actions from '../actions/actions'
+import Store from '../stores/stores'
+import MenuActions from '../actions/actions'
 
 import css from 'glamor'
 import 'glamor/reset'
