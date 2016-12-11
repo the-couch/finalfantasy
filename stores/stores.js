@@ -12,12 +12,27 @@ class Store {
     this.interval          = null
 
     this.bindListeners({
-      updateCharacters:         Actions.updateCharacters
+      updateCharacters:         Actions.updateCharacters,
+      updateHours:              Actions.updateHours,
+      updateMinutes:            Actions.updateMinutes,
+      updateSeconds:            Actions.updateSeconds,
     })
   }
 
   updateCharacters(characters) {
     this.characters = characters
+  }
+
+  updateHours(hours) {
+    this.hours = hours
+  }
+
+  updateMinutes(minutes) {
+    this.minutes = minutes
+  }
+
+  updateSeconds(seconds) {
+    this.seconds = seconds
   }
 }
 

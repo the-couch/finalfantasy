@@ -13,10 +13,19 @@ export default class extends Component {
     super(props)
     this.state = Store.getState()
     this.onChange = this.onChange.bind(this)
+    this.setTime = this.setTime.bind(this)
   }
+
+  componentWillMount() {
+    this.setTime()
+  }
+
   componentDidMount() {
     Store.listen(this.onChange)
-    console.log(this.state.characters)
+
+    this.state.interval = setInterval(() => {
+      this.setTime();
+    }, 1000)
   }
 
   componentWillUnmount() {
@@ -27,11 +36,38 @@ export default class extends Component {
     this.setState(state)
   }
 
+  setTime() {
+    let currentdate = new Date();
+    let hours = currentdate.getUTCHours() - 4;
+
+      // correct for number over 24, and negatives
+      if( hours >= 24 ){ hours -= 24; }
+      if( hours < 0   ){ hours += 12; }
+
+      // add leading zero, first convert hours to string
+      let stringHours = hours.toString();
+      if( stringHours.length === 1 ){ stringHours = "0" + stringHours; }
+
+      // minutes are the same on every time zone
+      let minutes = currentdate.getUTCMinutes();
+
+      // add leading zero, first convert hours to string
+      let stringMinutes = minutes.toString();
+      if( stringMinutes.length === 1 ){ stringMinutes = "0" + stringMinutes; }
+
+      let seconds = currentdate.getUTCSeconds();
+      this.setState({
+        hours: stringHours,
+        minutes: stringMinutes,
+        seconds: seconds
+      });
+  }
+
   render() {
     return (
       <div>
         <Head>
-          <title>Final Fantasy Menus</title>
+          <title>Final Fantasy 7 Menu</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
         </Head>
