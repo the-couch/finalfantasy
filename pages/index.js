@@ -111,47 +111,47 @@ const Character = React.createClass({
       width: this.props.character.limit.limitLevel + '%'
     }
     return (
-      <div className="final--users-single">
-        <div className="final--users-image">
+      <div {...styles.userSingle}>
+        <div className="image">
           <img src={this.props.character.photo} alt="" />
         </div>
         <div className="wrapper">
           <div className="final--users-name">
             <span>{this.props.character.name}</span>
-            <div className="final--users-stats">
-              <div className="final--users-stats-header">
+            <div {...styles.stats}>
+              <div {...styles.statsHeader}>
                 LV
               </div>
-              <div className="final--users-stats-value">
+              <div className="value">
                 {this.props.character.lv}
               </div>
             </div>
-            <div className="final--users-stats">
-              <div className="final--users-stats-header">
+            <div {...styles.stats}>
+              <div {...styles.statsHeader}>
                 HP
               </div>
-              <div className="final--users-stats-value-row">
-                <div className="final--users-stats-value-single" style={colorHPText}>
+              <div {...styles.statsValueRow}>
+                <div {...styles.statsValueSingle} style={colorHPText}>
                   {this.state.hp + '/'}
                 </div>
-                <div className="final--users-stats-value-single">
+                <div {...styles.statsValueSingle}>
                   {this.props.character.hp.total}
                 </div>
-                <div className="final--users-stats-amount"><span style={cloudHP}></span></div>
+                <div {...styles.statsAmount}><span style={cloudHP}></span></div>
               </div>
             </div>
-            <div className="final--users-stats">
-              <div className="final--users-stats-header">
+            <div {...styles.stats}>
+              <div {...styles.statsHeader}>
                 MP
               </div>
-              <div className="final--users-stats-value-row">
-                <div className="final--users-stats-value-single" style={colorMPText}>
+              <div {...styles.statsValueRow}>
+                <div {...styles.statsValueSingle} style={colorMPText}>
                   {this.state.mp + '/'}
                 </div>
-                <div className="final--users-stats-value-single">
+                <div {...styles.statsValueSingle}>
                   {this.props.character.mp.total}
                 </div>
-                <div className="final--users-stats-amount"><span style={cloudMP}></span></div>
+                <div {...styles.statsAmount}><span style={cloudMP}></span></div>
               </div>
             </div>
           </div>

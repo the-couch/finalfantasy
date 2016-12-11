@@ -1,4 +1,4 @@
-import { css, after, media, select as $ } from 'glamor'
+import { css, after, media, select as $, nthChild } from 'glamor'
 
 
 let wrapper = css({
@@ -43,8 +43,8 @@ let finalMenu = css(
 
 let finalInfo = css({
   position: 'absolute',
-  right: 0,
-  bottom: 20,
+  right: -20,
+  bottom: 10,
   width: 96,
   padding: '6px 4px',
   color: 'white',
@@ -66,14 +66,14 @@ let finalLocation = css({
   fontSize: '.9rem',
   width: 300,
   position: 'absolute',
-  bottom: -14,
-  right: 0
+  bottom: -24,
+  right: -20
 })
 
 let finalUsers = css({
   fontSize: '.9rem',
   padding: '20px 40px',
-  width: 440,
+  width: 400,
   '& .wrapper': {
     display: 'flex'
   }
@@ -95,10 +95,10 @@ let limitBox = css(
     border: '2px solid rgb(193,196,203)',
     borderRadius: 2,
     position: 'relative',
-    height: 12,
+    height: 8,
     marginTop: 3,
     marginLeft: 20,
-    boxShadow: 'inset 0 0 10px rgba(0,0,0)',
+    boxShadow: 'inset 0 0 10px rgb(0,0,0)',
     '& span': {
       position: 'absolute',
       height: 8,
@@ -124,6 +124,64 @@ let blueGrad = css({
   background: 'linear-gradient(rgb(14,12,171) 0%, rgb(13,13,83) 100%)',
 })
 
+let userSingle = css(
+  {
+    display: 'flex',
+    width: 400,
+    color: 'white',
+    position: 'relative',
+    zIndex: 10,
+    paddingBottom: 10,
+    '& .image': {
+      width: 90,
+      marginRight: 20
+    }
+  },
+  nthChild('2', {
+    '& .image': {
+      textAlign: 'right'
+    }
+  })
+)
+
+let stats = css({
+  display: 'flex',
+  padding: '3px 0 0',
+  marginRight: 8
+})
+
+let statsHeader = css({
+  width: 28,
+  fontWeight: 'bold',
+  color: 'rgb(67, 212, 229)'
+})
+
+let statsValueRow = css({
+  display: 'flex',
+  width: 80,
+  flexWrap: 'wrap'
+})
+
+let statsValueSingle = css({
+  width: '50%',
+  textAlign: 'right'
+})
+
+let statsAmount = css({
+  position: 'relative',
+  width: '100%',
+  background: 'black',
+  height: 2,
+  '& span': {
+    display: 'block',
+    background: 'red',
+    position: 'absolute',
+    height: 2,
+    left: 0,
+    top: 0
+  }
+})
+
 module.exports = {
   wrapper,
   final,
@@ -134,5 +192,11 @@ module.exports = {
   limit,
   limitBlock,
   limitBox,
+  userSingle,
+  stats,
+  statsHeader,
+  statsValueRow,
+  statsValueSingle,
+  statsAmount,
   blueGrad
 }
