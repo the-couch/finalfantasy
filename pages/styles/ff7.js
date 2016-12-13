@@ -79,6 +79,12 @@ let finalNav = css({
   fontSize: '.9rem',
   '& span': {
     opacity: .4
+  },
+  '& a': {
+    position: 'relative',
+    zIndex: 4,
+    textDecoration: 'none',
+    color: 'white'
   }
 })
 

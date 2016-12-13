@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import Store from '../stores/stores'
 import MenuActions from '../actions/actions'
 import Character from './components/character'
@@ -24,13 +25,14 @@ export default class extends Component {
   componentDidMount() {
     Store.listen(this.onChange)
 
-    this.state.interval = setInterval(() => {
+    setInterval(() => {
       this.setTime();
     }, 1000)
   }
 
   componentWillUnmount() {
     Store.unlisten(this.onChange)
+    this.state.internal = null
   }
 
   onChange(state) {
@@ -76,7 +78,7 @@ export default class extends Component {
       'config'
     ]
     return nav.map((item, i) => {
-      return (<div key={i}>{item}</div>)
+      return (<div key={i}><Link href={"/ff7/"+item}><a>{item}</a></Link></div>)
     })
   }
 

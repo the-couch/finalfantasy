@@ -42,14 +42,6 @@ export default class extends Component {
                 return <Character key={character.id} character={character} />
               })}
             </div>
-            <div {...styles.finalMenu} {...styles.blueGrad} {...styles.finalInfo}>
-              <div className="wrapper">
-                <span>Time</span> <strong>{this.state.hours}:{this.state.minutes}:{this.state.seconds}</strong>
-              </div>
-              <div className="wrapper">
-                <span>Gil</span> <strong>3992883</strong>
-              </div>
-            </div>
             {/* <div className="final--location final--blue final--menu"> */}
             <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalLocation}>
               <span>Great Hole in Time</span>
