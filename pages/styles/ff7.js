@@ -146,14 +146,20 @@ let userSingle = css(
     paddingBottom: 10,
     '& .image': {
       width: 90,
-      marginRight: 20
+      marginRight: 20,
+      '& img': {
+        width: 70
+      }
+    },
+    '&.hidden': {
+      display: 'none'
     }
   },
-  nthChild('2', {
-    '& .image': {
-      textAlign: 'right'
-    }
-  })
+  // nthChild('2', {
+  //   '& .image': {
+  //     textAlign: 'right'
+  //   }
+  // })
 )
 
 let stats = css({

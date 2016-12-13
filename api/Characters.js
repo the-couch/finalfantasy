@@ -6,6 +6,7 @@ let CharactersAPI = {
       id: 1,
       name: "Cloud",
       lv: 97,
+      active: true,
       hp: {
         current: 830,
         total: 9201
@@ -25,6 +26,7 @@ let CharactersAPI = {
       id: 2,
       name: "Barret",
       lv: 95,
+      active: false,
       hp: {
         current: 1500,
         total: 8701
@@ -42,8 +44,29 @@ let CharactersAPI = {
     },
     {
       id: 3,
+      name: "Cid",
+      lv: 93,
+      active: true,
+      hp: {
+        current: 6730,
+        total: 9101
+      },
+      mp: {
+        current: 350,
+        total: 802
+      },
+      limit: {
+        next: 10,
+        level: 3,
+        limitLevel: 80
+      },
+      photo: Config.baseUrl.concat('cid.png')
+    },
+    {
+      id: 4,
       name: "Tifa",
       lv: 96,
+      active: true,
       hp: {
         current: 6063,
         total: 9105
