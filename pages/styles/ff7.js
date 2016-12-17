@@ -29,6 +29,15 @@ let hand = css({
   }
 })
 
+let github = css({
+  position: 'absolute',
+  right: 0,
+  top: 0,
+  '& .oct': {
+    fill: 'white'
+  }
+})
+
 let finalMenu = css(
   {
     border: '2px solid rgb(193,196,203)',
@@ -246,6 +255,7 @@ module.exports = {
   limit,
   limitBlock,
   limitBox,
+  github,
   userSingle,
   stats,
   statsHeader,
