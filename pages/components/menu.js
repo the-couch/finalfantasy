@@ -14,6 +14,7 @@ export default class Menu extends Component {
     this.onChange = this.onChange.bind(this)
     this.renderNav = this.renderNav.bind(this)
     this.handlePress = this.handlePress.bind(this)
+    this.navigate = this.navigate.bind(this)
     this.moveNav = this.moveNav.bind(this)
   }
 
@@ -84,6 +85,32 @@ export default class Menu extends Component {
     }
   }
 
+  navigate(direction) {
+    let menu = this.state.menu,
+      current = this.state.menuActive,
+      newMenu = []
+
+    switch(direction) {
+      case 'forward': {
+        menu.map((item, i) => {
+          if (i === current) {
+            item.visible = true
+            document.querySelectorAll('.menu-item a')[i].click();
+            console.log(window)
+          } else {
+            item.visible = false
+          }
+          newMenu.push(item)
+        })
+        Actions.updateMenu(newMenu)
+        break
+      }
+      case 'backward': {
+        break
+      }
+    }
+  }
+
   handlePress(e) {
     if (e.keyCode === 38) {
       this.moveNav('up')
@@ -91,18 +118,26 @@ export default class Menu extends Component {
     if (e.keyCode === 40) {
       this.moveNav('down')
     }
+    console.log(e.keyCode)
+    if (e.keyCode === 13 || e.keyCode === 88) {
+      this.navigate('forward')
+    }
   }
 
   renderNav() {
     return this.state.menu.map((item, i) => {
       return (
-        <div onKeyDown={this.handlePress} key={i} className={'menu-item visible-'+item.visible+ ' active-'+item.active}>
-          {item.hand ?
-            <div {...styles.hand}>
-              <img src={Config.baseUrl.concat('hand.png')} />
+        <div key={i}>
+          {item.visible ?
+            <div onKeyDown={this.handlePress}  className={'menu-item visible-'+item.visible+ ' active-'+item.active}>
+              {item.hand ?
+                <div {...styles.hand}>
+                  <img src={Config.baseUrl.concat('hand.png')} />
+                </div>
+              : ''}
+              <Link href={"/ff7/"+item.name}><a>{item.name}</a></Link>
             </div>
-          : ''}
-          <Link href={"/ff7/"+item.name}><a>{item.name}</a></Link>
+          : '' }
         </div>
       )
     })
