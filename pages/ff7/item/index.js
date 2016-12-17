@@ -37,14 +37,14 @@ export default class extends Component {
         </Head>
         <div className={styles.wrapper}>
           <div className={styles.final}>
+            <div {...styles.blueGrad} {...styles.finalMenu}>
+              <span>Great Hole in Time</span>
+            </div>
             <div {...styles.finalUsers} {...styles.finalMenu} {...styles.blueGrad}>
               {this.state.characters.map((character) => {
-                return <Character key={character.id} character={character} />
+                let limit = false;
+                return <Character key={character.id} character={character} limit={limit} />
               })}
-            </div>
-            {/* <div className="final--location final--blue final--menu"> */}
-            <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalLocation}>
-              <span>Great Hole in Time</span>
             </div>
           </div>
         </div>

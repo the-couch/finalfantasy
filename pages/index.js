@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Store from '../stores/stores'
 import MenuActions from '../actions/actions'
 import Character from './components/character'
+import Menu from './components/menu'
 
 import css from 'glamor'
 import 'glamor/reset'
@@ -25,14 +26,14 @@ export default class extends Component {
   componentDidMount() {
     Store.listen(this.onChange)
 
-    setInterval(() => {
+    this.state.interval = setInterval(() => {
       this.setTime();
     }, 1000)
   }
 
   componentWillUnmount() {
     Store.unlisten(this.onChange)
-    this.state.internal = null
+    clearInterval(this.state.internal)
   }
 
   onChange(state) {
@@ -66,22 +67,6 @@ export default class extends Component {
       });
   }
 
-  renderNav() {
-    let nav = [
-      'item',
-      'magic',
-      'materia',
-      'equip',
-      'status',
-      'order',
-      'limit',
-      'config'
-    ]
-    return nav.map((item, i) => {
-      return (<div key={i}><Link href={"/ff7/"+item}><a>{item}</a></Link></div>)
-    })
-  }
-
   render() {
     return (
       <div>
@@ -94,7 +79,8 @@ export default class extends Component {
           <div className={styles.final}>
             <div {...styles.finalUsers} {...styles.finalMenu} {...styles.blueGrad}>
               {this.state.characters.map((character) => {
-                return <Character key={character.id} character={character} />
+                let limit = true
+                return <Character key={character.id} character={character} limit={limit} />
               })}
             </div>
             <div {...styles.finalMenu} {...styles.blueGrad} {...styles.finalInfo}>
@@ -109,11 +95,7 @@ export default class extends Component {
             <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalLocation}>
               <span>Great Hole in Time</span>
             </div>
-            <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalNav}>
-              {this.renderNav()}
-              <br />
-              <span>Save</span>
-            </div>
+            <Menu />
           </div>
         </div>
       </div>

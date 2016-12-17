@@ -3,7 +3,6 @@ import { css, after, media, select as $, nthChild } from 'glamor'
 
 let wrapper = css({
   transition: 'all .25s',
-  padding: 20,
   height: '100vh',
   width: '100vw',
   display: 'flex',
@@ -20,6 +19,16 @@ let final = css({
   width: 500
 })
 
+let hand = css({
+  position: 'absolute',
+  zIndex: 4,
+  width: 40,
+  left: -40,
+  '& img': {
+    width: 36
+  }
+})
+
 let finalMenu = css(
   {
     border: '2px solid rgb(193,196,203)',
@@ -27,7 +36,18 @@ let finalMenu = css(
     color: 'white',
     fontFamily: 'Source Code Pro',
     position: 'relative',
-    boxShadow: 'inset 0 0 10px rgb(16,18,93)'
+    boxShadow: 'inset 0 0 10px rgb(16,18,93)',
+    '& .visible-false': {
+      display: 'none'
+    },
+    '& .active-false': {
+      opacity: '.4'
+    },
+    '& .menu-item': {
+      position: 'relative',
+      minHeight: 20
+    }
+
   },
   after({
     content: '""',
@@ -209,6 +229,7 @@ let statsAmount = css({
 module.exports = {
   wrapper,
   final,
+  hand,
   finalMenu,
   finalNav,
   finalLocation,

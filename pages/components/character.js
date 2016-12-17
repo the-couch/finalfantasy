@@ -95,17 +95,19 @@ const Character = React.createClass({
               </div>
             </div>
           </div>
-          <div {...styles.limit}>
-            <div {...styles.limitBlock}>
-              <span>next level</span>
-              <div {...styles.limitBox}><span style={nextLimitWidth}></span></div>
-            </div>
+          {this.props.limit ?
+            <div {...styles.limit}>
+              <div {...styles.limitBlock}>
+                <span>next level</span>
+                <div {...styles.limitBox}><span style={nextLimitWidth}></span></div>
+              </div>
 
-            <div {...styles.limitBlock}>
-              <span>Limit level <strong>{this.props.character.limit.level}</strong></span>
-              <div {...styles.limitBox}><span style={limitLevelWidth}></span></div>
+              <div {...styles.limitBlock}>
+                <span>Limit level <strong>{this.props.character.limit.level}</strong></span>
+                <div {...styles.limitBox}><span style={limitLevelWidth}></span></div>
+              </div>
             </div>
-          </div>
+          : '' }
         </div>
       </div>
     )

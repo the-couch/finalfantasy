@@ -4,6 +4,12 @@ class Actions {
   updateCharacters(characters) {
     return characters
   }
+  updateMenu(menu) {
+    return menu
+  }
+  updateMenuActive(menuActive) {
+    return menuActive
+  }
   updateHours(hours) {
     return hours
   }
