@@ -5,6 +5,7 @@ import Store from '../stores/stores'
 import MenuActions from '../actions/actions'
 import Character from './components/character'
 import Menu from './components/menu'
+import Layout from './layout'
 
 import css from 'glamor'
 import 'glamor/reset'
@@ -67,14 +68,14 @@ export default class extends Component {
 
   render() {
     return (
-      <div>
-        <Head>
-          <title>Final Fantasy 7 Menu</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
-        </Head>
-        <div className={styles.wrapper}>
-          <div className={styles.final}>
+        <div>
+          <Head>
+            <title>Final Fantasy 7 Menu</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
+          </Head>
+
+          <Layout routing={this.props}>
             <div {...styles.finalUsers} {...styles.finalMenu} {...styles.blueGrad}>
               {this.state.characters.map((character) => {
                 let limit = true
@@ -93,10 +94,8 @@ export default class extends Component {
             <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalLocation}>
               <span>Great Hole in Time</span>
             </div>
-            <Menu routing={this.props} />
-          </div>
+          </Layout>
         </div>
-      </div>
     )
   }
 }

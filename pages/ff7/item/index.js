@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Store from '../../../stores/stores'
 import Actions from '../../../actions/actions'
 
+import Layout from '../../layout'
 import Menu from '../../components/menu'
 import Character from '../../components/character'
 
@@ -19,19 +20,19 @@ export default class extends Component {
   componentDidMount() {
     Store.listen(this.onChange)
 
-    let newMenu = []
-
-    this.state.menu.map((item, i) => {
-      if (i === 0) {
-        item.hand = false
-        item.visible = true
-      } else {
-        item.hand = false
-        item.visible = false
-      }
-      newMenu.push(item)
-    })
-    Actions.updateMenu(newMenu)
+    // let newMenu = []
+    //
+    // this.state.menu.map((item, i) => {
+    //   if (i === 0) {
+    //     item.hand = false
+    //     item.visible = true
+    //   } else {
+    //     item.hand = false
+    //     item.visible = false
+    //   }
+    //   newMenu.push(item)
+    // })
+    // Actions.updateMenu(newMenu)
   }
 
   componentWillUnmount() {
@@ -50,20 +51,17 @@ export default class extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
         </Head>
-        <div className={styles.wrapper}>
-          <div className={styles.final}>
-            <div {...styles.blueGrad} {...styles.finalMenu}>
-              <span>Great Hole in Time</span>
-            </div>
-            <div {...styles.finalUsers} {...styles.finalMenu} {...styles.blueGrad}>
-              {this.state.characters.map((character) => {
-                let limit = false;
-                return <Character key={character.id} character={character} limit={limit} />
-              })}
-            </div>
-            <Menu />
+        <Layout routing={this.props}>
+          <div {...styles.blueGrad} {...styles.finalMenu}>
+            <span>Use</span>
           </div>
-        </div>
+          <div {...styles.finalUsers} {...styles.finalMenu} {...styles.blueGrad}>
+            {this.state.characters.map((character) => {
+              let limit = false;
+              return <Character key={character.id} character={character} limit={limit} />
+            })}
+          </div>
+        </Layout>
       </div>
     )
   }

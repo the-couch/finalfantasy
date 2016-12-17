@@ -106,7 +106,21 @@ export default class Menu extends Component {
         Actions.updateMenu(newMenu)
         break
       }
-      case 'backward': {
+      case 'back': {
+        console.log('back')
+        menu.map((item, i) => {
+          if (i === 0) {
+            item.visible = true
+            item.hand = true
+            this.props.routing.url.pushTo("/")
+          } else {
+            item.hand = false
+            item.visible = true
+          }
+          newMenu.push(item)
+        })
+        Actions.updateMenu(newMenu)
+        Actions.updateMenuActive(0)
         break
       }
     }
@@ -119,10 +133,13 @@ export default class Menu extends Component {
     if (e.keyCode === 40) {
       this.moveNav('down')
     }
-    console.log(e.keyCode)
     if (e.keyCode === 13 || e.keyCode === 88) {
       this.navigate('forward')
     }
+    if (e.keyCode === 8) {
+      this.navigate('back')
+    }
+    e.stopPropagation()
   }
 
   renderNav() {
