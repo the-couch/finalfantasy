@@ -164,8 +164,13 @@ export default class Menu extends Component {
   }
 
   render() {
+    let url = this.props.routing.url
+    let inner = ''
+    if (url.pathname.length >= 3) {
+      inner= 'inner-page'
+    }
     return (
-      <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalNav}>
+      <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalNav} className={inner}>
         {this.renderNav()}
       </div>
     )

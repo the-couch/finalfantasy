@@ -59,7 +59,7 @@ const Character = React.createClass({
     let userActive = this.props.character.active ? 'visible' : 'hidden'
     return (
       <div {...styles.userSingle} className={userActive}>
-        <div className="image">
+        <div className={"image close-"+this.props.limit}>
           <img src={this.props.character.photo} alt="" />
         </div>
         <div className="wrapper">

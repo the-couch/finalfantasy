@@ -6,7 +6,9 @@ let ItemsAPI = {
       name: "Potion",
       value: 100,
       attribute: 'hp',
+      message: 'Restores HP by 100',
       value: 25,
+      hand: true,
       qty: 40,
       multi: false
     },
@@ -14,6 +16,8 @@ let ItemsAPI = {
       name: "Hi-Potion",
       value: 500,
       attribute: 'hp',
+      message: 'Restores HP by 500',
+      hand: false,
       value: 150,
       qty: 10,
       multi: false
@@ -22,7 +26,9 @@ let ItemsAPI = {
       name: "X-Potion",
       value: 9999,
       attribute: 'hp',
+      message: 'Fully restores HP of one party member',
       value: 1,
+      hand: false,
       qty: 1,
       multi: false
     },
@@ -30,7 +36,9 @@ let ItemsAPI = {
       name: "Ether",
       value: 100,
       attribute: 'mp',
+      message: 'Restores MP by 100',
       value: 750,
+      hand: false,
       qty: 12,
       multi: false
     },
@@ -38,7 +46,9 @@ let ItemsAPI = {
       name: "Turbo Ether",
       value: 999,
       attribute: 'mp',
+      message: 'Fully restories MP of one party member',
       value: 1,
+      hand: false,
       qty: 9,
       multi: false
     }

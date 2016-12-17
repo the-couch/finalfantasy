@@ -3,11 +3,13 @@ import Actions from '../actions/actions'
 
 import { CharactersAPI } from '../api/characters'
 import { NavAPI } from '../api/nav'
+import { ItemsAPI } from '../api/items'
 
 class Store {
   constructor() {
     this.characters        = CharactersAPI.characters
     this.menu              = NavAPI.items
+    this.items             = ItemsAPI.items
     this.hours             = 0
     this.minutes           = 0
     this.seconds           = 0

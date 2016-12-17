@@ -16,7 +16,10 @@ let final = css({
   userSelect: 'none',
   position: 'relative',
   zIndex: 10,
-  width: 500
+  width: 500,
+  '& .inner-page': {
+    top: 0
+  }
 })
 
 let hand = css({
@@ -125,6 +128,7 @@ let finalUsers = css({
     display: 'flex'
   }
 })
+
 
 let limit = css({
   paddingLeft: 6,
@@ -243,6 +247,33 @@ let statsAmount = css({
   }
 })
 
+let finalItemUsers = css({
+  fontSize: '.9rem',
+  padding: '20px 20px',
+  width: 400,
+  '& .wrapper': {
+    display: 'flex'
+  },
+  '& .image': {
+    marginRight: 0
+  }
+})
+
+let finalTop = css({
+  fontSize: '.9rem',
+  padding: '7px 20px'
+})
+
+let finalItems = css({
+  position: 'absolute',
+  zIndex: 4,
+  top: 36,
+  right: -20,
+  width: 192,
+  height: 317,
+  padding: '4px 46px'
+})
+
 module.exports = {
   wrapper,
   final,
@@ -252,6 +283,9 @@ module.exports = {
   finalLocation,
   finalInfo,
   finalUsers,
+  finalItems,
+  finalTop,
+  finalItemUsers,
   limit,
   limitBlock,
   limitBox,
