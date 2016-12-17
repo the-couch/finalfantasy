@@ -25,6 +25,7 @@ export default class Menu extends Component {
 
   componentWillUnmount() {
     Store.unlisten(this.onChange)
+    document.removeEventListener('keydown', this.handlePress)
   }
 
   onChange(state) {
@@ -127,6 +128,7 @@ export default class Menu extends Component {
   }
 
   handlePress(e) {
+    e.preventDefault()
     if (e.keyCode === 38) {
       this.moveNav('up')
     }
@@ -138,8 +140,8 @@ export default class Menu extends Component {
     }
     if (e.keyCode === 8) {
       this.navigate('back')
+      e.preventDefault()
     }
-    e.stopPropagation()
   }
 
   renderNav() {
