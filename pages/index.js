@@ -93,7 +93,7 @@ export default class extends Component {
             <div {...styles.blueGrad} {...styles.finalMenu} {...styles.finalLocation}>
               <span>Great Hole in Time</span>
             </div>
-            <Menu />
+            <Menu routing={this.props} />
           </div>
         </div>
       </div>

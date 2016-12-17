@@ -95,9 +95,10 @@ export default class Menu extends Component {
         menu.map((item, i) => {
           if (i === current) {
             item.visible = true
-            document.querySelectorAll('.menu-item a')[i].click();
-            console.log(window)
+            item.hand = false
+            this.props.routing.url.pushTo("/ff7/"+item.name)
           } else {
+            item.hand = false
             item.visible = false
           }
           newMenu.push(item)

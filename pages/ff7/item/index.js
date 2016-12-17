@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import Head from 'next/head'
 
 import Store from '../../../stores/stores'
-import MenuActions from '../../../actions/actions'
+import Actions from '../../../actions/actions'
 
+import Menu from '../../components/menu'
 import Character from '../../components/character'
 
 import * as styles from '../../styles/ff7'
@@ -17,6 +18,20 @@ export default class extends Component {
 
   componentDidMount() {
     Store.listen(this.onChange)
+
+    let newMenu = []
+
+    this.state.menu.map((item, i) => {
+      if (i === 0) {
+        item.hand = false
+        item.visible = true
+      } else {
+        item.hand = false
+        item.visible = false
+      }
+      newMenu.push(item)
+    })
+    Actions.updateMenu(newMenu)
   }
 
   componentWillUnmount() {
@@ -46,6 +61,7 @@ export default class extends Component {
                 return <Character key={character.id} character={character} limit={limit} />
               })}
             </div>
+            <Menu />
           </div>
         </div>
       </div>
