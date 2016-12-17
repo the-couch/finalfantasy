@@ -60,11 +60,9 @@ export default class extends Component {
       if( stringMinutes.length === 1 ){ stringMinutes = "0" + stringMinutes; }
 
       let seconds = currentdate.getUTCSeconds();
-      this.setState({
-        hours: stringHours,
-        minutes: stringMinutes,
-        seconds: seconds
-      });
+      MenuActions.updateHours(stringHours)
+      MenuActions.updateMinutes(stringMinutes)
+      MenuActions.updateSeconds(seconds)
   }
 
   render() {

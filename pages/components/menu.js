@@ -31,6 +31,7 @@ export default class Menu extends Component {
   }
 
   moveNav(direction) {
+    console.log(this.state);
     let current = this.state.menuActive,
      previous = this.state.menuActive - 1,
      next = this.state.menuActive + 1,
