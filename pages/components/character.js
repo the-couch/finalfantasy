@@ -19,14 +19,18 @@ const Character = React.createClass({
     })
   },
   render() {
-    let cloudHP = {
+    let colorHP = {
       width: (this.state.hp / this.props.character.hp.total) * 100 + '%'
     }
+    let colorHPBar;
+
     let userColor;
     if ((this.state.hp / this.props.character.hp.total * 100) <= 50) {
-      userColor = 'rgb(231, 231, 0)';
+      userColor = 'rgb(231, 231, 0)'
+      colorHPBar = 'redzone'
     } else {
       userColor = 'rgb(255,255,255)';
+      colorHPBar = 'gradient'
     }
     let colorHPText = {
       color: userColor
@@ -34,11 +38,14 @@ const Character = React.createClass({
     let cloudMP = {
       width: (this.state.mp / this.props.character.mp.total) * 100 + '%'
     }
+    let colorMPBar;
     let userMPColor;
     if ((this.state.mp / this.props.character.mp.total * 100) <= 50) {
-      userMPColor = 'rgb(231, 231, 0)';
+      userMPColor = 'rgb(231, 231, 0)'
+      colorMPBar = 'redzone'
     } else {
-      userMPColor = 'rgb(255,255,255)';
+      userMPColor = 'rgb(255,255,255)'
+      colorMPBar = 'gradient-green'
     }
     let colorMPText = {
       color: userMPColor
@@ -77,7 +84,7 @@ const Character = React.createClass({
                 <div {...styles.statsValueSingle}>
                   {this.props.character.hp.total}
                 </div>
-                <div {...styles.statsAmount}><span style={cloudHP}></span></div>
+                <div {...styles.statsAmount}><span className={colorHPBar} style={colorHP}></span></div>
               </div>
             </div>
             <div {...styles.stats}>
@@ -91,7 +98,7 @@ const Character = React.createClass({
                 <div {...styles.statsValueSingle}>
                   {this.props.character.mp.total}
                 </div>
-                <div {...styles.statsAmount}><span style={cloudMP}></span></div>
+                <div {...styles.statsAmount}><span className={colorMPBar}  style={cloudMP}></span></div>
               </div>
             </div>
           </div>

@@ -218,11 +218,19 @@ let statsAmount = css({
   height: 2,
   '& span': {
     display: 'block',
-    background: 'red',
     position: 'absolute',
     height: 2,
     left: 0,
     top: 0
+  },
+  '& .redzone': {
+    background: 'red'
+  },
+  '& .gradient': {
+    background: 'linear-gradient(to right, #2340b2 0%,#c5d7e5 100%)'
+  },
+  '& .gradient-green': {
+    background: 'linear-gradient(to right, #31f76c 0%,#f2fcf3 100%)'
   }
 })
 
