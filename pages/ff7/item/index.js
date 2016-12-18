@@ -17,11 +17,14 @@ export default class extends Component {
     this.state = Store.getState()
     this.onChange = this.onChange.bind(this)
     this.renderItems = this.renderItems.bind(this)
+    this.handlePress = this.handlePress.bind(this)
+    this.moveItems = this.moveItems.bind(this)
   }
 
   componentDidMount() {
     Store.listen(this.onChange)
     Actions.updateHandSelector('item-nav')
+    document.addEventListener('keydown', this.handlePress)
 
     let newMenu = []
 
@@ -40,10 +43,27 @@ export default class extends Component {
 
   componentWillUnmount() {
     Store.unlisten(this.onChange)
+    document.removeEventListener('keydown', this.handlePress)
   }
 
   onChange(state) {
     this.setState(state)
+  }
+
+  moveItems(direction) {
+    console.log('we in the items list')
+  }
+
+  handlePress(e) {
+    e.preventDefault()
+    if (this.state.handSelector = 'item-nav') {
+      if (e.keyCode === 38) {
+        this.moveItems('up')
+      }
+      if (e.keyCode === 40) {
+        this.moveItems('down')
+      }
+    }
   }
 
   renderItems() {
