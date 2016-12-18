@@ -33,7 +33,6 @@ export default class Menu extends Component {
   }
 
   moveNav(direction) {
-    console.log(this.state);
     let current = this.state.menuActive,
      previous = this.state.menuActive - 1,
      next = this.state.menuActive + 1,
@@ -108,7 +107,6 @@ export default class Menu extends Component {
         break
       }
       case 'back': {
-        console.log('back')
         menu.map((item, i) => {
           if (i === 0) {
             item.visible = true
@@ -129,11 +127,14 @@ export default class Menu extends Component {
 
   handlePress(e) {
     e.preventDefault()
-    if (e.keyCode === 38) {
-      this.moveNav('up')
-    }
-    if (e.keyCode === 40) {
-      this.moveNav('down')
+
+    if (this.state.handSelector === 'menu') {
+      if (e.keyCode === 38) {
+        this.moveNav('up')
+      }
+      if (e.keyCode === 40) {
+        this.moveNav('down')
+      }
     }
     if (e.keyCode === 13 || e.keyCode === 88) {
       this.navigate('forward')

@@ -19,6 +19,9 @@ class Actions {
   updateSeconds(seconds) {
     return seconds
   }
+  updateHandSelector(handSelector) {
+    return handSelector
+  }
 }
 
 module.exports = alt.createActions(Actions)

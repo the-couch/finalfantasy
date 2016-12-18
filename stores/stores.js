@@ -14,6 +14,8 @@ class Store {
     this.minutes           = 0
     this.seconds           = 0
     this.menuActive        = 0
+    this.itemSelected      = null
+    this.handSelector      = 'menu'
     this.interval          = null
 
     this.bindListeners({
@@ -21,6 +23,7 @@ class Store {
       updateHours:              Actions.updateHours,
       updateMenu:               Actions.updateMenu,
       updateMenuActive:         Actions.updateMenuActive,
+      updateHandSelector:       Actions.updateHandSelector,
       updateMinutes:            Actions.updateMinutes,
       updateSeconds:            Actions.updateSeconds,
     })
@@ -40,6 +43,10 @@ class Store {
 
   updateHours(hours) {
     this.hours = hours
+  }
+
+  updateHandSelector(handSelector) {
+    this.handSelector = handSelector
   }
 
   updateMinutes(minutes) {

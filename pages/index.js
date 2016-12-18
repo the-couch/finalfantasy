@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Store from '../stores/stores'
-import MenuActions from '../actions/actions'
+import Actions from '../actions/actions'
 import Character from './components/character'
 import Menu from './components/menu'
 import Layout from './layout'
@@ -26,6 +26,7 @@ export default class extends Component {
 
   componentDidMount() {
     Store.listen(this.onChange)
+    Actions.updateHandSelector('menu')
 
     this.state.interval = setInterval(() => {
       this.setTime();
@@ -61,9 +62,9 @@ export default class extends Component {
       if( stringMinutes.length === 1 ){ stringMinutes = "0" + stringMinutes; }
 
       let seconds = currentdate.getUTCSeconds();
-      MenuActions.updateHours(stringHours)
-      MenuActions.updateMinutes(stringMinutes)
-      MenuActions.updateSeconds(seconds)
+      Actions.updateHours(stringHours)
+      Actions.updateMinutes(stringMinutes)
+      Actions.updateSeconds(seconds)
   }
 
   render() {

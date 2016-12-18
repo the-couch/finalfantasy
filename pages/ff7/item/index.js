@@ -21,6 +21,7 @@ export default class extends Component {
 
   componentDidMount() {
     Store.listen(this.onChange)
+    Actions.updateHandSelector('item-nav')
 
     let newMenu = []
 
